@@ -1,2 +1,16 @@
 ---
-# tasks file for tmp_ramfs
+
+- name: ensure systemd unit file
+  ansible.builtin.copy:
+    src: tmp.mount
+    dest: /etc/systemd/system/tmp.mount
+    owner: root
+    group: root
+    mode: '06440'
+
+- name: enable and start the tmp.mount unit
+  ansible.builtin.systemd:
+    state: started
+    enabled: yes
+    daemon_reload: yes
+    name: tmp.mount
