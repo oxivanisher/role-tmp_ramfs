@@ -1,14 +1,13 @@
 ---
-
-- name: ensure systemd unit file
+- name: Ensure systemd unit file
   ansible.builtin.copy:
     src: tmp.mount
     dest: /etc/systemd/system/tmp.mount
     owner: root
     group: root
-    mode: '06440'
+    mode: "06440"
 
-- name: enable and start the tmp.mount unit
+- name: Enable and start the tmp.mount unit
   ansible.builtin.systemd:
     state: started
     enabled: true
