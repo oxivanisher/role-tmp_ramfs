@@ -6,6 +6,8 @@
     owner: root
     group: root
     mode: "06440"
+  become: true
+  become_user: root
 
 - name: Enable and start the tmp.mount unit
   ansible.builtin.systemd:
@@ -13,3 +15,5 @@
     enabled: true
     daemon_reload: true
     name: tmp.mount
+  become: true
+  become_user: root
