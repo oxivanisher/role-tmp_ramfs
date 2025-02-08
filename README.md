@@ -1,31 +1,28 @@
-Role Name
+tmp_ramfs
 =========
+[![Ansible Lint](https://github.com/oxivanisher/role-tmp_ramfs/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/oxivanisher/role-tmp_ramfs/actions/workflows/ansible-lint.yml)
 
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role configures the `/tmp` folder to be in RAM i.e. for longer SD card lifetimes on Raspberry Pis.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+None
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- name: Enable /tmp in RAM
+  hosts: rpis
+  roles:
+    - role: oxivanisher.raspberry_pi.tmp_ramfs
+```
 
 License
 -------
@@ -35,4 +32,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+This role is part of the [oxivanisher.raspberry_pi](https://galaxy.ansible.com/ui/repo/published/oxivanisher/raspberry_pi/) collection, and the source for that is located on [github](https://github.com/oxivanisher/collection-raspberry_pi).
